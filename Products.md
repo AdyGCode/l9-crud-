@@ -1,6 +1,6 @@
 # Products TODO list
 
-## Model, Migration, Controller +
+## Model, Migration, Controller |
 
 Create the products Model, Controller etc
 
@@ -52,7 +52,7 @@ sail artisan migrate --step
 Update the products seeder to add the following data...
 
 | Name                       | Description                                                   | Price   | Company      |
-+----------------------------+---------------------------------------------------------------+---------+--------------+
+|----------------------------|---------------------------------------------------------------|---------|--------------|
 | Classic 10696              | LEGO Classic Medium Creative Brick Box                        | $39.00  | Lego         |
 | Denim Women's Jacket       | The 1964 Denim Company Women's Organic Crop Jacket - Bay Wash | $30.00  | Denim        |
 | Blacksmith Men's Boots W   | Blacksmith Men's Steel Cap Work Boots - Sparky Wheat          | $59.00  | Blacksmith   |
