@@ -32,7 +32,7 @@ Add the following companies to the seeder:
 | 13  | Denim        | denim@example.com        | 501 Blue Avenue, San Francisco, CA | USA          |
 | 15  | Thrustmaster | thrustmaster@example.com | 777 Control Drive, Sydney, NSW     | AUS          |
 | 20  | iRobot       | iRobot@example.com       | 88 Vacuum Bend, Dublin             | IRE          |
-| 22  | Philips            | philips@example.com            | 42 Blended Row, Marrickville, NSW    | AUS            |
+| 22  | Philips      | philips@example.com            | 42 Blended Row, Marrickville, NSW    | AUS            |
 
 ## Create a new migration 
 
