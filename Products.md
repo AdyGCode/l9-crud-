@@ -26,7 +26,7 @@ sail artisan migrate --step
 Add the following companies to the seeder:
 
 | id | name          | email                    | address                            | country code |
-|----|---------------|--------------------------|---------------------------|----|
+|----|---------------|--------------------------|------------------------------------|--------------|
 | 10 | Blacksmith    | blacksmith@example       | 33 Smithy Lane, Ballarat, VIC      | AUS          |
 | 11 | Lego          | lego@example.com         | 876 Brick Block, Oslo              | NOR          |
 | 13 | Denim         | denim@example.com        | 501 Blue Avenue, San Francisco, CA | USA          |
@@ -70,9 +70,32 @@ Update the products seeder to add the following data...
 
 Add the Product Seeder to the Database Seeder
 
+
+## Add a Countries Model, Migration and Seeder
+
+```shell
+sail artisan make:model Country -m -s 
+```
+
+## Add the fields to hold the details shown below:
+
+
+
+
 ## Perform a migration and seed from scratch
 
 ``` shell
-
+sail artisan migrate:fresh --seed --step
 ```
+
+## BREAD time!
+
+You will now create the BREAD / CRUD components in the following order:
+1. Browse
+2. Read
+3. Add
+4. Edit
+5. Delete
+
+
 
