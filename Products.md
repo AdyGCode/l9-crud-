@@ -79,7 +79,18 @@ sail artisan make:model Country -m -s
 
 ## Add the fields to hold the details shown below:
 
+- Country Name
+- 2 Letter Code (code_2)
+- 3 Letter code (code_3)
+- Numerical code
 
+
+## Update Country Seeder
+
+- Add the code to seed the countries table with the seed data provided.
+- Add the seeder to the Database Seeder as the FIRST seeder in the list.
+
+Sample data in (Countries.md)[./Countries.md]. You are given an array with 200+ codes in as of 29/8/22.
 
 
 ## Perform a migration and seed from scratch
@@ -96,6 +107,8 @@ You will now create the BREAD / CRUD components in the following order:
 3. Add
 4. Edit
 5. Delete
+
+Use the Companies pages as a starter if you get stuck.
 
 
 
