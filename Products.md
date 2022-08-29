@@ -90,7 +90,7 @@ sail artisan make:model Country -m -s
 - Add the code to seed the countries table with the seed data provided.
 - Add the seeder to the Database Seeder as the FIRST seeder in the list.
 
-Sample data in (Countries.md)[./Countries.md]. You are given an array with 200+ codes in as of 29/8/22.
+Sample data in [Countries.md](Countries.md). You are given an array with 200+ codes in as of 29/8/22.
 
 
 ## Perform a migration and seed from scratch
