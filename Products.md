@@ -41,7 +41,7 @@ sail artisan make:migration update_products_table
 
 Use this migration to add a new field:
 
-- company_id, unsigned big integer, default 0
+- company_id, unsigned big integer, default 0 (foreign key?)
 
 Run the migration using:
 ```shell
