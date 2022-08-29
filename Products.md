@@ -25,13 +25,14 @@ sail artisan migrate --step
 
 Add the following companies to the seeder:
 
-| id | name          | email                    | address                            | country code |
-|----|---------------|--------------------------|------------------------------------|--------------|
-| 10 | Blacksmith    | blacksmith@example       | 33 Smithy Lane, Ballarat, VIC      | AUS          |
-| 11 | Lego          | lego@example.com         | 876 Brick Block, Oslo              | NOR          |
-| 13 | Denim         | denim@example.com        | 501 Blue Avenue, San Francisco, CA | USA          |
-| 15 | Thrustmaster  | thrustmaster@example.com | 777 Control Drive, Sydney, NSW     | AUS          |
-| 20 | iRobot        | iRobot@example.com       | 88 Vacuum Bend, Dublin             | IRE          |
+| id  | name         | email                    | address                            | country code |
+|-----|--------------|--------------------------|------------------------------------|--------------|
+| 10  | Blacksmith   | blacksmith@example       | 33 Smithy Lane, Ballarat, VIC      | AUS          |
+| 11  | Lego         | lego@example.com         | 876 Brick Block, Oslo              | NOR          |
+| 13  | Denim        | denim@example.com        | 501 Blue Avenue, San Francisco, CA | USA          |
+| 15  | Thrustmaster | thrustmaster@example.com | 777 Control Drive, Sydney, NSW     | AUS          |
+| 20  | iRobot       | iRobot@example.com       | 88 Vacuum Bend, Dublin             | IRE          |
+| 22  | Philips            | philips@example.com            | 42 Blended Row, Marrickville, NSW    | AUS            |
 
 ## Create a new migration 
 
