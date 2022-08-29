@@ -26,15 +26,15 @@
                 <td>
                     <a href="{{ route('companies.view', $company->id) }}"
                        class="rounded bg-stone-800 text-white p-2 my-2 mx-1">
-                       View
+                        View
                     </a>
                     <a href="{{ route('companies.edit', $company->id) }}"
                        class="rounded bg-stone-800 text-white p-2 my-2 mx-1">
-                       Edit
+                        Edit
                     </a>
                     <a href="{{ route('companies.delete', $company->id) }}"
                        class="rounded bg-red-800 text-white p-2 my-2 mx-1">
-                       Delete
+                        Delete
                     </a>
                 </td>
             </tr>
