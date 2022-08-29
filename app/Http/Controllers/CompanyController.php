@@ -16,7 +16,7 @@ class CompanyController extends Controller
     public function index()
     {
         $companies = Company::all();
-        $name = "Fred Bloggs";
+        $name = "Fred Bloggs"; // example for passing multiple values
         return view("companies.index",
             compact(['companies', 'name']));
     }
@@ -29,8 +29,9 @@ class CompanyController extends Controller
     public function create()
     {
         // TODO: Get country list from Countries table
+        $countries = [];
         // TODO: Add country to the view data for dropdown
-        return view("companies.create");
+        return view("companies.create", compact(['countries',]));
     }
 
     /**
@@ -44,8 +45,9 @@ class CompanyController extends Controller
         $rules = [
             'name'=>['min:1','max:192','unique:companies,name'],
             'address'=>['required'],
-            'email'=>['min:5', 'email','unique:companies,email'],
-            'country_code'=>['min:3','max:3',],
+            'email'=>['min:5', 'email:dns,rfc','unique:companies,email'],
+            'countryCode'=>['min:3','max:3',],
+//            'countryCode'=>['min:3','max:3','exists:countries,code_3',],
         ];
 
         $validated = $request->validate($rules);
@@ -57,7 +59,7 @@ class CompanyController extends Controller
             'country_code' => $validated['countryCode'],
         ];
         $newCompany = Company::create($newCompanyData);
-        return redirect()->route('companies')
+        return redirect()->route('companies.index')
             ->with('success',
                 "Company { $newCompany->name } created successfully.");
     }
@@ -114,10 +116,10 @@ class CompanyController extends Controller
             'country_code' => $validated['countryCode'],
         ];
 
-        Company::find($id)->update($companyData);
+        $company = Company::find($id)->update($companyData);
 
         return redirect()->route('companies.index')
-            ->with('success','Company updated');
+            ->with('success',"Company { $company->name } updated");
     }
 
     /**
@@ -126,8 +128,21 @@ class CompanyController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Company $company)
     {
-        //
+        $oldName = $company->name;
+        Company::destroy($company);
+        return redirect()->route('companies.index')
+            ->with('success',"Company { $oldName } deleted.");
     }
+
+    /**
+     * @param Company $company
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function delete(Company $company)
+    {
+        return view('companies.delete', compact('company'));
+    }
+
 }

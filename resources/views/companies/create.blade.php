@@ -1,26 +1,23 @@
 <!-- create.blade.php -->
 <x-guest-layout>
-    <h1 class="bg-stone-200 mb-6 p-2">Add New Company</h1>
+    <div class="w-4/5 mx-auto">
+    <h1 class="bg-stone-200 mb-6 p-2 py-6 text-2xl">Add New Company</h1>
 
     <form action="{{ route('companies.store') }}"
           method="POST">
         @csrf
         <!-- Company name -->
         <div class="grid grid-cols-2 my-2
-                    @error('name')
-                    text-red-500
-                    @enderror
-                    ">
+                    @error('name') text-red-500 @enderror">
             <label for="CompanyName">Company Name:</label>
             <input type="text" id="CompanyName"
                    name="name" value="{{ old('name') }}"
                    placeholder="Enter Company Name"
                    class="ml-2
-                    @error('name')
-                    text-red-500 border-red-500
-                    @enderror">
+                          @error('name') text-red-500 border-red-500 @enderror">
             @error('name')
-            <p>{{ $errors->first('name') }}</p>
+            <p> </p>
+            <p class="ml-2">{{ $errors->first('name') }}</p>
             @enderror
         </div>
         <!-- Company Address -->
@@ -36,15 +33,18 @@
             <label for="CountryCode">Country:</label>
             <select name="countryCode" id="CountryCode"
                     class="ml-2">
-                <option value="AUS">Australia</option>
-                <option value="CAN">Canada</option>
-                <option value="USA">United States of America</option>
-                <option value="GBR">Great Britain</option>
-                <option value="IRE">Ireland</option>
-                <option value="NZL">New Zealand</option>
-                <option value="ZZZ">Other/Unknown</option>
+                <option value="AUS" @if(old("countryCode")==="AUS") selected @endif>{{ __("Australia")}}</option>
+                <option value="CAN" @if(old("countryCode")==="CAN") selected @endif>{{ __("Canada") }}</option>
+                <option value="USA" @if(old("countryCode")==="USA") selected @endif>
+                    {{ __("United States of America") }}
+                </option>
+                <option value="GBR" @if(old("countryCode")==="GBR") selected @endif>{{ __("Great Britain") }}</option>
+                <option value="IRE" @if(old("countryCode")==="IRE") selected @endif>{{ __("Ireland") }}</option>
+                <option value="NZL" @if(old("countryCode")==="NZL") selected @endif>{{ __("New Zealand") }}</option>
+                <option value="ZZZ" @if(old("countryCode")==="ZZZ") selected @endif>{{ __("Other/Unknown") }}</option>
             </select>
         </div>
+
         <!-- Company Contact eMail -->
         <div class="grid grid-cols-2 my-2">
             <label for="CompanyEMail">Contact eMail:</label>
@@ -52,12 +52,14 @@
                    name="email" value="{{ old('email') }}"
                    placeholder="Enter Company Contact eMail"
                    class="ml-2">
+            @error('email')
             <p></p>
-            <div>
+            <div class="text-red-500 ml-2 p-0">
                 @foreach($errors->get('email') as $message)
                     <p>{{ $message }}</p>
                 @endforeach
             </div>
+            @enderror
         </div>
         <!-- Save / Cancel / Back -->
         <div class="grid grid-cols-2 my-2">
@@ -71,10 +73,11 @@
                         class="rounded bg-blue-700 text-white px-2 py-1 mx-2">
                     Clear
                 </button>
-                <button class="rounded bg-stone-700 text-white px-2 py-1 mx-2"
+                <a class="rounded bg-stone-700 text-white px-2 py-1 mx-2"
+                   href="{{ route('companies.index') }}"
                         id="Back">
                     Back
-                </button>
+                </a>
             </div>
         </div>
         <div>
@@ -88,5 +91,5 @@
             @enderror
         </div>
     </form>
-
+    </div>
 </x-guest-layout>

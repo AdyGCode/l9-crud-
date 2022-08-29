@@ -29,8 +29,12 @@ Route::put("/companies/{company}",[CompanyController::class,'update'])
     ->name('companies.update');
 //Route::patch("/companies/{company}",[CompanyController::class,'update'])
 //    ->name('companies.update');
+Route::delete("/companies/{company}",[CompanyController::class,'destroy'])
+    ->name('companies.destroy');
 Route::get("/companies/{company}/edit", [CompanyController::class, 'edit'])
     ->name('companies.edit');
+Route::get("/companies/{company}/delete", [CompanyController::class, 'delete'])
+    ->name('companies.delete');
 Route::get("/companies/{company}", [CompanyController::class, 'show'])
     ->name('companies.view');
 

@@ -20,19 +20,22 @@
         <tbody>
         @foreach($companies as $company)
             <tr>
-                <td>#</td>
+                <td>{{ $loop->index + 1 }}</td>
                 <td>{{ $company->name }}</td>
                 <td>{{ $company->country_code }}</td>
                 <td>
                     <a href="{{ route('companies.view', $company->id) }}"
                        class="rounded bg-stone-800 text-white p-2 my-2 mx-1">
-                        View
+                       View
                     </a>
                     <a href="{{ route('companies.edit', $company->id) }}"
                        class="rounded bg-stone-800 text-white p-2 my-2 mx-1">
-                        Edit
+                       Edit
                     </a>
-                    Delete
+                    <a href="{{ route('companies.delete', $company->id) }}"
+                       class="rounded bg-red-800 text-white p-2 my-2 mx-1">
+                       Delete
+                    </a>
                 </td>
             </tr>
         @endforeach
