@@ -26,6 +26,7 @@ sail artisan migrate --step
 Add the following companies to the seeder:
 
 | id | name          | email                    | address                            | country code |
+|----|---------------|--------------------------|---------------------------|----|
 | 10 | Blacksmith    | blacksmith@example       | 33 Smithy Lane, Ballarat, VIC      | AUS          |
 | 11 | Lego          | lego@example.com         | 876 Brick Block, Oslo              | NOR          |
 | 13 | Denim         | denim@example.com        | 501 Blue Avenue, San Francisco, CA | USA          |
