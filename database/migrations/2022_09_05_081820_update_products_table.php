@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('description')->nullable();
-            $table->decimal('price',10,2)->default(0.00);
-            $table->timestamps();
+        // Add country code
+        Schema::table('products', function (Blueprint $table) {
+            $table->unsignedBigInteger('company_id')->before('created_at')->default(0);
         });
     }
 
@@ -29,6 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::table('products', function (Blueprint $table) {
+            $this->dropColumn('company_id');
+        });
     }
 };

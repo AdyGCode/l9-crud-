@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Company;
 use App\Models\Country;
+use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
@@ -39,10 +40,10 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'name'=>['min:1','max:192','unique:companies,name'],
-            'address'=>['required'],
-            'email'=>['min:5', 'email:dns,rfc','unique:companies,email'],
-            'countryCode'=>['min:3','max:3',],
+            'name' => ['min:1', 'max:192', 'unique:companies,name'],
+            'address' => ['required'],
+            'email' => ['min:5', 'email:dns,rfc', 'unique:companies,email'],
+            'countryCode' => ['min:3', 'max:3',],
 //            'countryCode'=>['min:3','max:3','exists:countries,code_3',],
         ];
 
@@ -55,7 +56,7 @@ class CompanyController extends Controller
             'country_code' => $validated['countryCode'],
         ];
         $newCompany = Company::create($newCompanyData);
-        return redirect()->route('companies . index')
+        return redirect()->route('companies.index')
             ->with('success',
                 "Company { $newCompany->name } created successfully.");
     }
@@ -69,7 +70,7 @@ class CompanyController extends Controller
     public function show($id)
     {
         $company = Company::find($id);
-        return view('companies . show', compact(['company']));
+        return view('companies.show', compact(['company']));
     }
 
     /**
@@ -93,14 +94,14 @@ class CompanyController extends Controller
     public function update(Request $request, $id)
     {
         $rules = [
-            'name'=>['min:1','max:192',
+            'name' => ['min:1', 'max:192',
 //                'unique:companies,name'
             ],
-            'address'=>['required'],
-            'email'=>['min:5', 'email',
+            'address' => ['required'],
+            'email' => ['min:5', 'email',
 //                'unique:companies,email'
             ],
-            'countryCode'=>['min:3','max:3',],
+            'countryCode' => ['min:3', 'max:3',],
         ];
 
         $validated = $request->validate($rules);
@@ -114,8 +115,8 @@ class CompanyController extends Controller
 
         $company = Company::find($id)->update($companyData);
 
-        return redirect()->route('companies . index')
-            ->with('success',"Company { $company->name } updated");
+        return redirect()->route('companies.index')
+            ->with('success', "Company { $company->name } updated");
     }
 
     /**
@@ -128,8 +129,8 @@ class CompanyController extends Controller
     {
         $oldName = $company->name;
         Company::destroy($company);
-        return redirect()->route('companies . index')
-            ->with('success',"Company { $oldName } deleted.");
+        return redirect()->route('companies.index')
+            ->with('success', "Company { $oldName } deleted.");
     }
 
     /**
@@ -138,7 +139,7 @@ class CompanyController extends Controller
      */
     public function delete(Company $company)
     {
-        return view('companies . delete', compact('company'));
+        return view('companies.delete', compact('company'));
     }
 
 }

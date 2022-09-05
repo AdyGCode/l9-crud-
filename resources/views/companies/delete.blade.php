@@ -12,7 +12,7 @@
         <dd>{{$company->email}}</dd>
     </dl>
     <p>
-    <form action="{{ route('companies.destroy', $company) }}">
+    <form action="{{ route('companies.destroy', $company) }}" method="POST">
         @csrf
         @method('DELETE')
         <button type="submit" name="delete"
